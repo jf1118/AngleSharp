@@ -1,4 +1,4 @@
-﻿namespace AngleSharp
+namespace AngleSharp
 {
     using AngleSharp.Dom;
     using AngleSharp.Html;
@@ -109,7 +109,8 @@
         /// <returns>The formatted comment.</returns>
         public String Comment(IComment comment)
         {
-            Confirm(comment.Owner.Doctype);
+            // comment.Owner can be null
+            Confirm(comment.Owner?.Doctype);
             return ChildFormatter.Comment(comment);
         }
 
