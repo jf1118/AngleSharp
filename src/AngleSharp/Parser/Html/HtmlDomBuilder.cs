@@ -1,4 +1,4 @@
-﻿namespace AngleSharp.Parser.Html
+namespace AngleSharp.Parser.Html
 {
     using AngleSharp.Dom;
     using AngleSharp.Dom.Html;
@@ -1996,6 +1996,9 @@
 
                     return;
                 }
+                case HtmlTokenType.Character:
+                    // ignore text content in a row - it isn't valid, and we don't want to stick it in the table
+                    return;
             }
 
             InTable(token);
